@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const resources = (await getCollection("resources")).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout pageTitle="Resources">
+	<ul>
+		{
+			resources.map((item) => (
+				<li>
+					<FormattedDate date={item.data.pubDate} />
+					<a href={`/resources/${item.slug}/`}>{item.data.title}</a>
+				</li>
+			))
+		}
+	</ul>
+</BaseLayout>
+
+<style>
+	ul {
+		list-style-type: none;
+		padding: unset;
+	}
+	ul li {
+		display: flex;
+	}
+	ul li :global(time) {
+		flex: 0 0 130px;
+		font-style: italic;
+		color: #595959;
+	}
+	ul li a:visited {
+		color: #8e32dc;
+	}
+</style>
