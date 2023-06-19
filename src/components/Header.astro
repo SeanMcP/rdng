@@ -1,17 +1,44 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
+
+const links = [
+	["/resources", "Resources"],
+	["/tools", "Tools"],
+];
 ---
 
-<header>
+<header class="_line">
 	<a href="/">
 		{SITE_TITLE}
 	</a>
+	<nav class="_line --gap">
+		{
+			links.map(([href, text]) => (
+				<a
+					aria-current={
+						[href, href + "/"].includes(Astro.url.pathname)
+							? "page"
+							: undefined
+					}
+					href={href}
+				>
+					{text}
+				</a>
+			))
+		}
+	</nav>
 </header>
 
 <style>
-	a {
+	header > a {
 		font-weight: bold;
 		text-transform: uppercase;
+	}
+	nav {
+		gap: 0.5rem;
+		margin-inline-start: auto;
+	}
+	nav a {
+		display: inline-block;
 	}
 </style>
