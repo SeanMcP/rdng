@@ -9,6 +9,13 @@ body {
   margin: 0;
 }
 
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
 .site > * {
   max-width: 800px;
   margin-inline: auto;

@@ -1,0 +1,21 @@
+---
+title: Consonant-vowel pattern queries
+description:
+  A tool for finding English words that follow a particular consonant-vowel
+  pattern
+---
+
+import CVQ from "../../apps/CVQ.astro";
+
+<CVQ>
+
+Search for English words that follow a particular consonant-vowel pattern.
+**Uppercase C or V letters** match any consonant or vowel, respectively, while
+**lowercase letters** match exact letters.
+
+- **CVC** will match words with any consonant, any vowel, and any consonant:
+  bat, cot, dog, fig, _etc_.
+- **CVCe** will match word with any consonant, vowel, consonant, and a final
+  "e": byte, cake, dome, fine, _etc_.
+
+</CVQ>

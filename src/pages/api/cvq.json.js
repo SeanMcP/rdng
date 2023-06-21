@@ -19,20 +19,23 @@ export async function get({ request }) {
     });
   }
 
-  const generalPattern = query
-    .split("")
-    .map((l) => {
-      if (l === "C" || l === "V") {
-        return l.toLowerCase();
-      } else {
-        if (vowels.includes(l)) {
-          return "v";
-        } else {
-          return "c";
-        }
-      }
-    })
-    .join("");
+  const generalPattern =
+    query === "CVCe"
+      ? "cvce"
+      : query
+          .split("")
+          .map((l) => {
+            if (l === "C" || l === "V") {
+              return l.toLowerCase();
+            } else {
+              if (vowels.includes(l)) {
+                return "v";
+              } else {
+                return "c";
+              }
+            }
+          })
+          .join("");
 
   const words = patterns[generalPattern];
 

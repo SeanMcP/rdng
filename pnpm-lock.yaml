@@ -26,6 +26,9 @@ dependencies:
   consonant-vowel-patterns:
     specifier: ^1.0.0
     version: 1.0.0
+  phosphor-astro:
+    specifier: ^0.1.0
+    version: 0.1.0
 
 packages:
 
@@ -3004,6 +3007,10 @@ packages:
       '@types/estree': 1.0.1
       estree-walker: 3.0.3
       is-reference: 3.0.1
+    dev: false
+
+  /phosphor-astro@0.1.0:
+    resolution: {integrity: sha512-6n9pPq0I4XXsY5kTrHndMZR108sHygcH5Geh88Bj8r1+mVf3y1iXP6DyOpyDj3hBjLS3KRfShNR9rp6030wp/A==}
     dev: false
 
   /picocolors@1.0.0:

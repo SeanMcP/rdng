@@ -1,0 +1,100 @@
+---
+import MagnifyingGlass from "phosphor-astro/MagnifyingGlass.astro";
+---
+
+<form action="/api/cvq.json">
+    <label id="query">
+        <MagnifyingGlass aria-label="Query" width={24} />
+        <input type="text" name="query" />
+    </label>
+    <label id="clean">
+        <input type="checkbox" name="clean" checked />
+        <span>Filter inappropriate words (slower)</span>
+    </label>
+    <button>Search</button>
+</form>
+<div id="slot-wrapper">
+    <slot />
+</div>
+<output></output>
+
+<style>
+    form > * + * {
+        margin-block-start: 1rem;
+    }
+    label {
+        display: block;
+    }
+    #query {
+        align-items: center;
+        border: 1px solid hsla(0, 0%, 0%, 0.25);
+        border-radius: 0.5rem;
+        display: flex;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+    #query input {
+        border: none;
+        flex-grow: 1;
+        outline: none; /* DANGER! */
+    }
+    #query:focus-within {
+        border-color: hsl(200, 100%, 40%);
+    }
+    #clean {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    form button {
+        border: none;
+        border-radius: 0.5rem;
+        display: block;
+        margin-inline: auto;
+        padding: 0.5rem 1rem;
+    }
+    #slot-wrapper {
+        margin-block: 2rem;
+    }
+    output:not(:empty) {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    :global(textarea) {
+        border: 1px solid hsla(0, 0%, 0%, 0.25);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+    }
+</style>
+
+<script>
+    const form = document.querySelector("form")!;
+    const submit = form.querySelector("button")!;
+    const output = document.querySelector("output")!;
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        submit.disabled = true;
+        output.textContent = "Loading...";
+
+        // @ts-ignore - TS things USP doesn't accept FormData, but it works
+        const params = new URLSearchParams(new FormData(form));
+
+        const url = form.action + "?" + params.toString();
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (response.status !== 200) {
+            submit.removeAttribute("disabled");
+            return (output.textContent = "Uh oh, something went wrong!");
+        }
+
+        const resultsString = data.matches.join("\n");
+
+        output.innerHTML = `<b>${data.matches.length} results for "${data.query}"</b><textarea rows="10" readonly>${resultsString}</textarea>`;
+        submit.removeAttribute("disabled");
+    });
+</script>

@@ -36,4 +36,13 @@ const resources = defineCollection({
   }),
 });
 
-export const collections = { blog, resources };
+const tools = defineCollection({
+  // Type-check frontmatter using a schema
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    heroImage: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, resources, tools };

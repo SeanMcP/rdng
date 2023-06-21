@@ -1,7 +1,19 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const tools = await getCollection("tools");
 ---
 
 <BaseLayout pageTitle="Tools">
-    <p>Coming soon</p>
+	<ul>
+		{
+			tools.map((item) => (
+				<li>
+					<a href={`/tools/${item.slug}/`}>{item.data.title}</a>:{" "}
+					<span>{item.data.description}</span>
+				</li>
+			))
+		}
+	</ul>
 </BaseLayout>
