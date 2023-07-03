@@ -8,32 +8,13 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<BaseLayout pageDescription={description} pageTitle={title}>
+<BaseLayout
+	displayDate={updatedDate || pubDate}
+	pageDescription={description}
+	pageTitle={title}
+>
 	<article>
 		{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-		<FormattedDate date={pubDate} />
-		{
-			updatedDate && (
-				<div class="last-updated-on">
-					Last updated on <FormattedDate date={updatedDate} />
-				</div>
-			)
-		}
-		<hr />
 		<slot />
 	</article>
 </BaseLayout>
-
-<style>
-	.title {
-		font-size: 2em;
-		margin: 0.25em 0 0;
-	}
-	hr {
-		border-top: 1px solid #ddd;
-		margin: 1rem 0;
-	}
-	.last-updated-on {
-		font-style: italic;
-	}
-</style>

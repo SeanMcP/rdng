@@ -7,53 +7,12 @@ const links = [
 ];
 ---
 
-<header class="_line">
-	<a class="_line" href="/">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
-			><rect width="256" height="256" fill="none"></rect><path
-				d="M128,88a32,32,0,0,1,32-32h64a8,8,0,0,1,8,8V192a8,8,0,0,1-8,8H160a32,32,0,0,0-32,32"
-				fill="none"
-				stroke="currentColor"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				stroke-width="16"></path><path
-				d="M24,192a8,8,0,0,0,8,8H96a32,32,0,0,1,32,32V88A32,32,0,0,0,96,56H32a8,8,0,0,0-8,8Z"
-				fill="none"
-				stroke="currentColor"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				stroke-width="16"></path><line
-				x1="160"
-				y1="96"
-				x2="200"
-				y2="96"
-				fill="none"
-				stroke="currentColor"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				stroke-width="16"></line><line
-				x1="160"
-				y1="128"
-				x2="200"
-				y2="128"
-				fill="none"
-				stroke="currentColor"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				stroke-width="16"></line><line
-				x1="160"
-				y1="160"
-				x2="200"
-				y2="160"
-				fill="none"
-				stroke="currentColor"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				stroke-width="16"></line></svg
-		>
+<header class="Line">
+	<span class="icon">R</span>
+	<a class="Line" href="/">
 		{SITE_TITLE}
 	</a>
-	<nav class="_line --gap">
+	<nav class="Line --gap">
 		{
 			links.map(([href, text]) => (
 				<a
@@ -72,9 +31,25 @@ const links = [
 </header>
 
 <style>
+	.icon {
+		--size: 24px;
+		--dimensions: calc(var(--size) + 4px);
+		align-items: center;
+		background-color: var(--text);
+		font-size: var(--size);
+		font-weight: bold;
+		display: flex;
+		color: var(--background);
+		height: var(--dimensions);
+		justify-content: center;
+		outline: 2px solid var(--text);
+		outline-offset: 2px;
+		width: var(--dimensions);
+	}
 	header > a {
 		font-weight: bold;
 		text-transform: uppercase;
+		margin-inline-start: var(--step--2);
 	}
 	header > a svg {
 		height: 1.5em;
@@ -86,5 +61,6 @@ const links = [
 	}
 	nav a {
 		display: inline-block;
+		font-weight: bold;
 	}
 </style>

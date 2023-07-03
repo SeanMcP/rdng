@@ -1,9 +1,18 @@
 :root {
-  --display: "Barlow Condensed", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
   --sans: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --serif: "Libre Baskerville", Georgia, Cambria, "Times New Roman", Times,
+    serif;
+
+  --color-dark: hsl(0, 0%, 15%);
+  --color-off-dark: hsl(0, 0%, 30%);
+  --color-off-light: hsl(0, 0%, 80%);
+  --color-light: hsl(0, 0%, 95%);
+
+  --background: var(--color-light);
+  --off-background: var(--color-off-light);
+  --text: var(--color-dark);
+  --text-light: var(--color-off-dark);
 }
 
 /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
@@ -20,13 +29,15 @@
 }
 
 body {
-  font-family: var(--sans);
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--serif);
   font-size: var(--step-0);
   margin: 0;
 }
 
 main {
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 button,
@@ -36,14 +47,22 @@ textarea {
   font: inherit;
 }
 
+hr {
+  background-color: var(--off-background);
+  border: none;
+  height: 2px;
+  margin-block: var(--step-2);
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--display);
-  line-height: 1;
+  font-family: var(--serif);
+  line-height: 1.2;
+  margin-block-end: var(--step--1);
 }
 
 h1 {
@@ -62,13 +81,44 @@ h4 {
   font-size: var(--step-2);
 }
 
+blockquote {
+  border-inline-start: 2px solid var(--off-background);
+  font-style: italic;
+  line-height: 1.2;
+  margin-inline-start: 0;
+  padding-block: var(--step--1);
+  padding-inline: var(--step-1);
+}
+
+a {
+  font-weight: bold;
+  text-decoration-color: var(--off-background);
+  text-decoration-thickness: 0.2ex;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 0.2ex;
+}
+
 .site > * {
   max-width: 800px;
   margin-inline: auto;
   padding: 1rem;
 }
 
-._line {
+.Callout {
+  border: 2px solid var(--off-background);
+  padding: var(--step-1);
+  margin-block: var(--step-2);
+}
+
+:is(blockquote, .Callout) > *:first-child {
+  margin-block-start: 0;
+}
+
+:is(blockquote, .Callout) > *:last-child {
+  margin-block-end: 0;
+}
+
+.Line {
   display: flex;
   align-items: center;
 }
