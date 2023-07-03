@@ -1,7 +1,7 @@
 ---
 title: Target the Problem! by Reading Rockets
 description:
-  A tool for parents and teachers to understand the problems a a child may be
+  A tool for parents and teachers to understand the problems a child may be
   having with reading and target what you can do to help.
 pubDate: 2023-06-29T12:00:00.000Z
 ---
@@ -13,8 +13,8 @@ discoverability.
 
 ---
 
-A tool for parents and teachers to understand the problems a a child may be
-having with reading and target what you can do to help.
+A tool for parents and teachers to understand the problems a child may be having
+with reading and target what you can do to help.
 
 Click below to learn about areas where kids often have reading difficulties.
 
