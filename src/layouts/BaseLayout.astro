@@ -8,10 +8,11 @@ import FormattedDate from "../components/FormattedDate.astro";
 export interface Props {
     displayDate?: Date;
     pageDescription?: string;
+    pageImage?: string;
     pageTitle?: string;
 }
 
-const { displayDate, pageTitle } = Astro.props;
+const { displayDate, pageImage, pageTitle } = Astro.props;
 
 const title = pageTitle ? `${pageTitle} | ${SITE_TITLE}` : SITE_TITLE;
 const description = Astro.props.pageDescription ?? SITE_DESCRIPTION;
@@ -20,7 +21,7 @@ const description = Astro.props.pageDescription ?? SITE_DESCRIPTION;
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <BaseHead title={title} description={description} />
+        <BaseHead title={title} description={description} image={pageImage} />
     </head>
     <body>
         <div class="site">

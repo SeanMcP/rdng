@@ -4,6 +4,7 @@ description:
   A text version of Professor Daniel Willingham's YouTube video on the value of
   teaching content to improve reading comprehension.
 pubDate: 2023-06-16
+image: /images/teaching-content.png
 ---
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/RiP-ijdxqEc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

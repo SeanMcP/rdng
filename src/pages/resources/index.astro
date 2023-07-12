@@ -6,35 +6,42 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const resources = (await getCollection("resources")).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+
+resources.reverse();
 ---
 
 <BaseLayout pageTitle="Resources">
-	<ul>
-		{
-			resources.map((item) => (
-				<li>
-					<FormattedDate date={item.data.pubDate} />
+	{
+		resources.map((item) => (
+			<article>
+				<img
+					src={item.data.image ?? "/images/default-resource.png"}
+					alt=""
+				/>
 					<a href={`/resources/${item.slug}/`}>{item.data.title}</a>
-				</li>
-			))
-		}
-	</ul>
+					<FormattedDate date={item.data.pubDate} />
+				<span>{item.data.description}</span>
+			</article>
+		))
+	}
 </BaseLayout>
 
 <style>
-	ul {
-		list-style-type: none;
-		padding: unset;
+	article {
+		display: grid;
+		gap: var(--step--2);
 	}
-	ul li {
-		display: flex;
+	article + article {
+		margin-block-start: var(--step-4);
 	}
-	ul li :global(time) {
-		flex: 0 0 130px;
-		font-style: italic;
-		color: #595959;
+	img {
+		grid-row: 1 / span 3;
+		width: 100%;
 	}
-	ul li a:visited {
-		color: #8e32dc;
+	@media screen and (min-width: 600px) {
+		article {
+			gap: var(--step--2) var(--step-1);
+			grid-template-columns: 240px 1fr;
+		}
 	}
 </style>

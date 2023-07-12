@@ -17,6 +17,9 @@ const item = Astro.props;
 const { Content } = await item.render();
 ---
 
-<BlogPost {...item.data}>
+<BlogPost
+	{...item.data}
+	image={item.data.image ?? "/images/default-resource.png"}
+>
 	<Content />
 </BlogPost>

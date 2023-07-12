@@ -5,15 +5,28 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const tools = await getCollection("tools");
 ---
 
-<BaseLayout pageTitle="Tools">
-	<ul>
-		{
-			tools.map((item) => (
-				<li>
-					<a href={`/tools/${item.slug}/`}>{item.data.title}</a>:{" "}
-					<span>{item.data.description}</span>
-				</li>
-			))
-		}
-	</ul>
+<BaseLayout pageTitle="Tools" pageImage="/images/default-tool.png">
+	{
+		tools.map((item) => (
+			<article>
+				<a href={`/tools/${item.slug}/`}>
+					<img
+						src={item.data.image ?? "/images/default-tool.png"}
+						alt=""
+					/>
+					{item.data.title}
+				</a>
+				<span>{item.data.description}</span>
+			</article>
+		))
+	}
 </BaseLayout>
+
+<style>
+	a {
+		display: inline-block;
+	}
+	img {
+		width: 100%;
+	}
+</style>

@@ -17,6 +17,10 @@ const item = Astro.props;
 const { Content } = await item.render();
 ---
 
-<BaseLayout pageDescription={item.data.description} pageTitle={item.data.title}>
+<BaseLayout
+	pageDescription={item.data.description}
+	pageImage={item.data.image ?? "/images/default-tool.png"}
+	pageTitle={item.data.title}
+>
 	<Content />
 </BaseLayout>

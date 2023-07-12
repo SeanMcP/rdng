@@ -4,6 +4,7 @@ description:
   A tool for parents and teachers to understand the problems a child may be
   having with reading and target what you can do to help.
 pubDate: 2023-07-03T12:00:00.000Z
+image: /images/target-the-problem.png
 ---
 
 <div class="Callout">
@@ -21,10 +22,30 @@ with reading and target what you can do to help.
 Click below to learn about areas where kids often have reading difficulties.
 
 - [Phonological and phonemic awareness](#phonological-and-phonemic-awareness)
+  - [What is it?](#what-is-it)
+  - [A kid's perspective](#a-kids-perspective)
+  - [A parent's perspective](#a-parents-perspective)
+  - [A teacher's perspective](#a-teachers-perspective)
 - [Word decoding and phonics](#word-decoding-and-phonics)
+  - [What is it?](#what-is-it-1)
+  - [A kid's perspective](#a-kids-perspective-1)
+  - [A parent's perspective](#a-parents-perspective-1)
+  - [A teacher's perspective](#a-teachers-perspective-1)
 - [Vocabulary](#vocabulary)
+  - [What is it?](#what-is-it-2)
+- [A kid's perspective](#a-kids-perspective-2)
+- [A parent's perspective](#a-parents-perspective-2)
+- [A teacher's perspective](#a-teachers-perspective-2)
 - [Fluency](#fluency)
+  - [What is it?](#what-is-it-3)
+  - [A kid's perspective](#a-kids-perspective-3)
+  - [A parent's perspective](#a-parents-perspective-3)
+  - [A teacher's perspective](#a-teachers-perspective-3)
 - [Comprehension](#comprehension)
+  - [What is it?](#what-is-it-4)
+  - [A kid's perspective](#a-kids-perspective-4)
+  - [A parent's perspective](#a-parents-perspective-4)
+  - [A teacher's perspective](#a-teachers-perspective-4)
 
 ## Phonological and phonemic awareness
 

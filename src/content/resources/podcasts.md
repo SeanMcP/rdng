@@ -2,6 +2,7 @@
 title: Podcasts
 description: Podcasts about reading instruction and the science of reading
 pubDate: 2023-06-18
+image: /images/podcasts.png
 ---
 
 ## Series

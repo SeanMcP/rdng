@@ -14,7 +14,7 @@ const blog = defineCollection({
       .string()
       .optional()
       .transform((str) => (str ? new Date(str) : undefined)),
-    heroImage: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 
@@ -32,7 +32,7 @@ const resources = defineCollection({
       .string()
       .optional()
       .transform((str) => (str ? new Date(str) : undefined)),
-    heroImage: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 
@@ -41,7 +41,7 @@ const tools = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    heroImage: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 
